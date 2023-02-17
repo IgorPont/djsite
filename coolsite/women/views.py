@@ -9,14 +9,14 @@ def index(request):  # HttpRequest
 def categories(request, catid):
     if request.GET:
         print(request.GET)
-    return HttpResponse(f'<h1>Статьи по категориям<h1><p>{catid}<p>')
+    return HttpResponse(f'<h1>Статьи по категориям</h1><p>{catid}</p>')
 
 
 def archive(request, year):
     if int(year) > 2023:
         return redirect('home', permanent=True)
-    return HttpResponse(f'<h1>Архив по годам<h1><p>{year}<p>')
+    return HttpResponse(f'<h1>Архив по годам</h1><p>{year}</p>')
 
 
-def pageNotFound(reauest, exception):
-    return HttpResponseNotFound('<h1>Страница не найдена<h1>')
+def pageNotFound(reauest, exception): # TODO необходимо изучить все исключания
+    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
